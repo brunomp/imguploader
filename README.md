@@ -9,6 +9,11 @@ Class javascript para fazer upload de imagens:
 - Início automático.
 - Possibilidade de cancelar o envio.
 
+# Compatibilidade:
+- Testado no Chrome 59.0.3071.104
+- Escrito em ES5.
+- Usa canvas, window.URL ou window.webkitURL
+
 # Exemplo de uso:
 
 ```javascript
