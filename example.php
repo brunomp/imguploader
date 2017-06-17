@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div id="imagensFila"></div>
 </div>
 
-<script src="/imguploader.js" type="text/javascript"></script>
+<script src="/imguploader.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 var uploader = new ImgUploader({
