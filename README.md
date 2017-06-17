@@ -6,16 +6,19 @@ Class javascript para fazer upload de imagens:
 - Redimensiona a imagem antes de enviar, para poupar o servidor.
 - Envia uma imagem de cada vez, para poupar o servidor.
 - Barra de progresso.
+- Início automático.
+- Possibilidade de cancelar o envio.
 
 # Exemplo de uso:
 
+```javascript
 var uploader = new ImgUploader({
-  inputFileId: 'anexos',
-  MAX_WIDTH: 1000,
-  MAX_HEIGHT: 1000,
+  inputFileId: 'inputImagem',
+  reduceWidth: 1000,
+  reducetHeight: 1000,
   target: '/',
-  containerId: 'anexosFila',
-  paramName: 'anexo',
+  containerId: 'imagensFila',
+  paramName: 'imagem',
   btnCancelText: 'Cancelar',
   onQueueConclude: function(done) {
     console.log(done);
@@ -24,3 +27,8 @@ var uploader = new ImgUploader({
     console.log(item);
   }
 });
+```
+
+# Intalação:
+- JS: `<script src="/imguploader.js" type="text/javascript"></script>` antes do fechamento de body.
+- CSS: `<link rel="stylesheet" href="imguploader.css">`
