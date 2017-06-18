@@ -1,3 +1,8 @@
+/*!
+ * imguploader.js v1.0.0
+ * https://github.com/brunomp/imguploader/
+ * Date: 2017-06-18T20:32:05.335Z
+ */
 (function(window, document, undefined) {
 
   'use strict';
