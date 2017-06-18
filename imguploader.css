@@ -1,4 +1,4 @@
-#imagensFila .queueItem .thumb {
+.imguploader .queueItem .thumb {
   height: 50px;
   width: 50px;
   background-size: cover;
