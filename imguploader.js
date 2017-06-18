@@ -14,7 +14,7 @@
     var self = this;
 
     this.defaults = {
-      target: '/',
+      target: window.location.href,
       formData: new FormData(),
       paramName: 'image',
       inputFileId: 'image',
@@ -30,6 +30,7 @@
     this.opts = extend({}, this.defaults, opts || {});
 
     this.inputFileElm = document.getElementById(this.opts.inputFileId);
+    this.inputFileElm.accept = 'image/*';
     this.queue = [];
     this.done = [];
 
@@ -89,6 +90,11 @@
       item.xhr.send(self.opts.formData);
     };
     function add(file) {
+
+      if ( ! /^image\//.test(file.type)) {
+        return;
+      }
+
       var item = {};
       var divItem = document.createElement('div');
       var divThumb = document.createElement('div');
