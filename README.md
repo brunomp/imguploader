@@ -17,13 +17,18 @@ Class javascript para fazer upload de imagens:
 # Exemplo de uso:
 
 ```javascript
+// Others params
+var formData = formData();
+formData.append('userId', 10);
+  
 var uploader = new ImgUploader({
   inputFileId: 'inputImagem',
   reduceWidth: 1000,
   reducetHeight: 1000,
-  target: '/',
+  target: window.location.href,
   containerId: 'imagensFila',
   paramName: 'imagem',
+  formData: formData,
   btnCancelText: 'Cancelar',
   onQueueConclude: function(done) {
     console.log(done);
