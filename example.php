@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script type="text/javascript">
 
 // Others params
-var formData = formData();
+var formData = new FormData();
 formData.append('userId', 10);
   
 var uploader = new ImgUploader({
