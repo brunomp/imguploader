@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.0
+ * imguploader.js v1.0.1
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -131,7 +131,8 @@
         image: img,
         xhr: new XMLHttpRequest(),
         container: divItem,
-        progressBar: progressElm
+        progressBar: progressElm,
+        btnAbort: btnAbort
       };
 
       document.getElementById(self.opts.containerId).appendChild(divItem);
