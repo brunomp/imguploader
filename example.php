@@ -28,6 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="/imguploader.js" type="text/javascript"></script>
 <script type="text/javascript">
 
+// Others params
+var formData = formData();
+formData.append('userId', 10);
+  
 var uploader = new ImgUploader({
   inputFileId: 'inputImagem',
   reduceWidth: 1000,
@@ -35,6 +39,7 @@ var uploader = new ImgUploader({
   target: window.location.href,
   containerId: 'imagensFila',
   paramName: 'imagem',
+  formData: formData,
   btnCancelText: 'Cancelar',
   onQueueConclude: function(done) {
     console.log(done);
