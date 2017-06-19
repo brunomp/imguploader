@@ -18,7 +18,7 @@ Class javascript para fazer upload de imagens:
 
 ```javascript
 // Others params
-var formData = formData();
+var formData = new FormData();
 formData.append('userId', 10);
   
 var uploader = new ImgUploader({
