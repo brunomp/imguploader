@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.1
+ * imguploader.js v1.0.2
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -101,19 +101,19 @@
       var divProgress = document.createElement('div');
       var progressElm = document.createElement('progress');
       var divMenu = document.createElement('div');
-      var btnAbort = document.createElement('button');
+      var btnCancel = document.createElement('button');
       divItem.classList.add('queueItem');
       divThumb.classList.add('thumb');
       divProgress.classList.add('progress');
       progressElm.max = 100;
       divMenu.classList.add('menu');
-      btnAbort.innerText = self.opts.btnCancelText;
-      btnAbort.classList.add('btnCancel');
-      btnAbort.addEventListener('click', function(){
+      btnCancel.innerText = self.opts.btnCancelText;
+      btnCancel.classList.add('btnCancel');
+      btnCancel.addEventListener('click', function(){
         cancelItem(item);
       });
       divProgress.appendChild(progressElm);
-      divMenu.appendChild(btnAbort);
+      divMenu.appendChild(btnCancel);
       divItem.appendChild(divThumb);
       divItem.appendChild(divProgress);
       divItem.appendChild(divMenu);
@@ -132,7 +132,7 @@
         xhr: new XMLHttpRequest(),
         container: divItem,
         progressBar: progressElm,
-        btnAbort: btnAbort
+        btnCancel: btnCancel
       };
 
       document.getElementById(self.opts.containerId).appendChild(divItem);
@@ -153,15 +153,13 @@
       item.container.classList.add('uploadSucess');
       self.done.push(item);
       self.queue.splice(self.queue.indexOf(item), 1);
-      self.opts.onItemConclude(item);
+      onItemConclude(item);
       play();
     };
     function concludeItemWithError(item){
       item.status = 'error';
       item.container.classList.add('uploadError');
-      self.done.push(item);
-      self.queue.splice(self.queue.indexOf(item), 1);
-      self.opts.onItemConclude(item);
+      onItemConclude(item);
       play();
     };
     function cancelItem(item) {
@@ -173,15 +171,19 @@
       item.container.classList.add('uploadCanceled');
       item.xhr.abort();
       item.progressBar.value = 0;
+      onItemConclude(item);
+      play();
+    };
+    function onItemConclude(item){
+      item.btnCancel.disabled = 'disabled';
       self.done.push(item);
       self.queue.splice(self.queue.indexOf(item), 1);
       self.opts.onItemConclude(item);
-      play();
     };
     function onQueueConclude(){
       self.opts.onQueueConclude(self.done);
       self.done = [];
-    }
+    };
 
     function extend(dst, src) {
       each(arguments, function(obj) {
