@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.2
+ * imguploader.js v1.0.4
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -151,8 +151,6 @@
     function concludeItemWithSucess(item){
       item.status = 'sucess';
       item.container.classList.add('uploadSucess');
-      self.done.push(item);
-      self.queue.splice(self.queue.indexOf(item), 1);
       onItemConclude(item);
       play();
     };
