@@ -23,6 +23,7 @@
       containerId: 'uploads',
       btnCancelText: 'CANCEL',
       onQueueConclude: function(){},
+      onQueueStart: function(){},
       onItemConclude: function() {}
     };
 
@@ -39,6 +40,7 @@
       for (var i = 0; i < nFiles; i++) {
         add(this.files[i]);
       }
+      onQueueStart();
     });
 
     function sendItem(item) {
@@ -182,6 +184,9 @@
       self.opts.onQueueConclude(self.done);
       self.done = [];
       self.inputFileElm.value = ''; // Clean inputfile to new selects
+    };
+    function onQueueStart(){
+      self.opts.onQueueConclude(self.queue);
     };
 
     function extend(dst, src) {
