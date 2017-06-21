@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.5
+ * imguploader.js v1.0.6
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -186,7 +186,7 @@
       self.inputFileElm.value = ''; // Clean inputfile to new selects
     };
     function onQueueStart(){
-      self.opts.onQueueConclude(self.queue);
+      self.opts.onQueueStart(self.queue);
     };
 
     function extend(dst, src) {
