@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.6
+ * imguploader.js v1.0.7
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -40,7 +40,6 @@
       for (var i = 0; i < nFiles; i++) {
         add(this.files[i]);
       }
-      onQueueStart();
     });
 
     function sendItem(item) {
@@ -143,6 +142,9 @@
     };
     function play() {
       if (self.queue.length > 0) {
+        if (self.done.length == 0) {
+          onQueueStart();
+        }
         if(self.queue[0].image.complete) {
           sendItem(self.queue[0]);
         }
@@ -186,7 +188,7 @@
       self.inputFileElm.value = ''; // Clean inputfile to new selects
     };
     function onQueueStart(){
-      self.opts.onQueueStart(self.queue);
+      self.opts.onQueueStart();
     };
 
     function extend(dst, src) {
