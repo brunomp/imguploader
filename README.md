@@ -39,6 +39,6 @@ var uploader = new ImgUploader({
 });
 ```
 
-# Intalação:
+# Instalação:
 - JS: `<script src="/imguploader.js" type="text/javascript"></script>` antes do fechamento de body.
 - CSS: `<link rel="stylesheet" href="imguploader.css">`
