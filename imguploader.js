@@ -72,7 +72,7 @@
       ctx.drawImage(item.image, 0, 0, width, height);
       var dataurl = canvas.toDataURL(item.file.type);
 
-      self.opts.formData.append(self.opts.paramName, dataurl);
+      self.opts.formData.set(self.opts.paramName, dataurl);
 
       item.xhr.open("POST", self.opts.target, true);
       item.xhr.onload = function(){
