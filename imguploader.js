@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.7
+ * imguploader.js v1.0.8
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
