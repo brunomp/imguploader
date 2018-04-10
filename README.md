@@ -31,10 +31,18 @@ var uploader = new ImgUploader({
   formData: formData,
   btnCancelText: 'Cancelar',
   onQueueConclude: function(done) {
-    console.log(done);
+    let itens = document.querySelectorAll('#imagensFila .queueItem');
+    for (let i of itens) i.remove();
   },
   onItemConclude: function(item) {
-    console.log(item);
+    var divThumb = item.container.getElementsByClassName('thumb');
+    if (item.status == 'sucess') {
+      divThumb[0].innerHTML = '<div>Enviado!</div>';
+    } else if (item.status == 'canceled') {
+      divThumb[0].innerHTML = '<div>Cancelado!</div>';
+    } else {
+      divThumb[0].innerHTML = '<div>Erro!</div>';
+    }
   }
 });
 ```
