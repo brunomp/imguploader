@@ -1,5 +1,40 @@
+.imguploader .queueItem {
+	display: inline-block;
+	margin-bottom: 15px;
+	margin-right: 10px;
+	width: 80px;
+}
 .imguploader .queueItem .thumb {
-  height: 50px;
-  width: 50px;
   background-size: cover;
+  height: 80px;
+  line-height: 80px;
+}
+.imguploader .queueItem .progress {
+	margin: 0;
+}
+.imguploader .queueItem .progress progress {
+	width: 95%;
+}
+.imguploader .queueItem .menu {
+	text-align: center;
+}
+.imguploader .queueItem .btnCancel {
+	font-size: 12px;
+	padding: 0px 5px;
+	margin: auto;
+}
+.imguploader .thumb div {
+    box-sizing: border-box;
+    color: #fff;
+    height: 100%;
+    text-align: center;
+}
+.imguploader .uploadSucess .thumb div {
+    background-color: rgba(0, 255, 40, 0.5);
+}
+.imguploader .uploadError .thumb div {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.imguploader .uploadCanceled .thumb div {
+    background-color: rgba(255, 232, 0, 0.5);
 }
