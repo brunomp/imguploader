@@ -1,5 +1,5 @@
 /*!
- * imguploader.js v1.0.8
+ * imguploader.js v1.0.9
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
  */
@@ -19,7 +19,7 @@
       paramName: 'image',
       inputFileId: 'image',
       reduceWidth: 1000,
-      reducetHeight: 1000,
+      reduceHeight: 1000,
       containerId: 'uploads',
       btnCancelText: 'CANCEL',
       onQueueConclude: function(){},
@@ -60,9 +60,9 @@
           width = self.opts.reduceWidth;
         }
       } else {
-        if (height > self.opts.reducetHeight) {
-          width *= self.opts.reducetHeight / height;
-          height = self.opts.reducetHeight;
+        if (height > self.opts.reduceHeight) {
+          width *= self.opts.reduceHeight / height;
+          height = self.opts.reduceHeight;
         }
       }
 
