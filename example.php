@@ -35,7 +35,7 @@ formData.append('userId', 10);
 var uploader = new ImgUploader({
   inputFileId: 'inputImagem',
   reduceWidth: 1000,
-  reducetHeight: 1000,
+  reduceHeight: 1000,
   target: window.location.href,
   containerId: 'imagensFila',
   paramName: 'imagem',
