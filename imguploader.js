@@ -1,7 +1,8 @@
 /*!
- * imguploader.js v1.0.9
+ * imguploader.js v1.0.10
  * https://github.com/brunomp/imguploader/
  * Date: 2017-06-18T20:32:05.335Z
+ * Date: 2018-09-04T13:49:05.335Z
  */
 (function(window, document, undefined) {
 
@@ -16,6 +17,7 @@
     this.defaults = {
       target: window.location.href,
       formData: new FormData(),
+      headers: {},
       paramName: 'image',
       inputFileId: 'image',
       reduceWidth: 1000,
@@ -75,6 +77,9 @@
       self.opts.formData.set(self.opts.paramName, dataurl);
 
       item.xhr.open("POST", self.opts.target, true);
+      each(self.opts.headers, function(value, key){
+        item.xhr.setRequestHeader(key, value);
+      });
       item.xhr.onload = function(){
         if (item.xhr.readyState == 4 
           && (item.xhr.status >= 200 && item.xhr.status <= 300)) {
